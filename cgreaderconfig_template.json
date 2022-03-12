@@ -1,0 +1,8 @@
+{
+    "filepattern": null,
+    "filepattern Description" : "The bot will monitor the most recent file that matches the provided pattern ex: /path/to/srb2k/runtime/luafiles/discord-out*.txt",
+    "bot_token": null,
+    "bot_token Description" : "Put the token for your bot here (make sure this file is secure)",
+    "default_channel": null,
+    "default_channel Description" : "channel id where the bot will output. Not required. You can set this on a slash command."
+}
