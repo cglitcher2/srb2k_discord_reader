@@ -23,6 +23,14 @@ This bot relies on the discord feature of Hostmod to view the log of your server
 * Place your <span style="color:#3480eb">Discord Token</span> in between the quotes for field labeled `bot_token`
 * For `filepattern`, we'll be making a pattern for the bot to match. It is: (<span style="color:red">the directory where the discord-out files are</span>) + discord-out*.txt
     * For example: `/home/cglitcher/.srb2kart/luafiles/discord-out*.txt`
+    * `/home/cglitcher/.srb2kart/luafiles/` is the path where my discord-out files are
 * Invite the bot to your discord server.
 * now run the damn thing in tmux, screen, or equivalent
 * Finally use the `outputin` slash command to tell the bot to put it in a specific channel
+
+## Acknowledgements
+Thanks for Tyron for the pointers and advice throughout the development of this.
+
+Thanks to the Stray Banana discord for being great friends and giving inspiration.
+
+For any questions, comments etc. I'm on discord: cglitcher#1172 😎
