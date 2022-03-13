@@ -7,10 +7,10 @@ This readme's mainly just a bow on top. If people actually want to use this I mi
 ## For your own server
 This bot relies on the discord feature of Hostmod to view the log of your server. You could have this check any log file, though there are some srb2k-hostmod specific features built in.
 * download and add [Hostmod](https://mb.srb2.org/threads/hostmod.26649/) to your server
-* enable hostmod's discord feature `hm_discord On`
+* on your srb2k server, enable hostmod's discord feature `hm_discord On`
 * <span style="color:red">Take note where hostmod creates discord-out files</span> (will be under `luafiles` at the root of your srb2k runtime folder)
 * Make a discord bot
-* Give your  bot the appropriate commands
+* Give your  bot the appropriate OAUTH2 permissions
     * applications.commands
     * send messages
     * use slash commands
@@ -21,7 +21,7 @@ This bot relies on the discord feature of Hostmod to view the log of your server
 * run cgreaderbot.py once. It will fail but that's ok `python cgreaderbot.py`
 * look now for cgreaderconfig.json. Open it up
 * Place your <span style="color:#3480eb">Discord Token</span> in between the quotes for field labeled `bot_token`
-* For filepattern, we'll be making a pattern for the bot to match. It is: (<span style="color:red">the directory where the discord-out files are</span>) + discord-out*.txt
+* For `filepattern`, we'll be making a pattern for the bot to match. It is: (<span style="color:red">the directory where the discord-out files are</span>) + discord-out*.txt
     * For example: `/home/cglitcher/.srb2kart/luafiles/discord-out*.txt`
 * Invite the bot to your discord server.
 * now run the damn thing in tmux, screen, or equivalent
