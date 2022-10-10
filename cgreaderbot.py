@@ -56,7 +56,7 @@ class FileEventHandler(commands.Cog):
         return target_file
 
     def process_text(self,new_data):
-        outtext = ""
+        outtext = []
 
         text = new_data.strip()
         # Replace ||| with newlines
@@ -64,7 +64,7 @@ class FileEventHandler(commands.Cog):
             if line.startswith("**Result -"):
                 line = line.replace("|||","\n")
 
-            outtext += line + "\n"
+            outtext += [line]
 
         return outtext
 
@@ -83,7 +83,7 @@ class FileEventHandler(commands.Cog):
         if self.bot.target_channel is None:
             return
 
-        outtext = ""
+        outtext = []
 
         #first find out if the server has restarted since last loop (a new file will be created)
         files = glob.glob(self.filepattern)
@@ -96,7 +96,7 @@ class FileEventHandler(commands.Cog):
                 
             outtext += self.process_text(remaining_text)
             #Set up for the next file
-            outtext += "*~~~~~~~~~~Server has restarted~~~~~~~~~~*\n"
+            outtext += ["*\~\~\~\~\~\~\~\~\~\~Server has restarted\~\~\~\~\~\~\~\~\~\~*"]
             self.target_file = most_recent_file
             self.offset = 0
 
@@ -108,12 +108,13 @@ class FileEventHandler(commands.Cog):
 
         outtext += self.process_text(new_data)
 
-        #Don't send empty strings else we get an error
-        if outtext.strip() == "":
-            return
 
         print(f"new_data:{outtext}")
-        await self.bot.target_channel.send(outtext)
+        for line in outtext:
+            #Don't send empty strings else we get an error
+            if line.strip() == "":
+                continue
+            await self.bot.target_channel.send(line)
 
     @printer.before_loop
     @save_config.before_loop
